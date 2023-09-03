@@ -1,0 +1,29 @@
+.tweet-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-input > label {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 4px solid rgb(44, 44, 44);
+  color: rgb(46, 46, 46);
+}
+
+.tweet-input > textarea {
+  margin: 1em;
+}
+
+.submit-counter {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bungee", sans-serif;
+}
+
+.submit-counter > button {
+  border: none;
+  background-color: rgb(31, 117, 192);
+  color: white;
+  padding: .3em .5em;
+}

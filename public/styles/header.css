@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100vw;
+  background-color: cadetblue;
+  position: relative;
+  top: 120px;
+  background-color: #bb4b99;
+  background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
+
+}
+
+.avatar {
+  padding: 0em;
+}
+
+.username {
+  color: white;
+}
