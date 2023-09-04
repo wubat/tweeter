@@ -24,6 +24,8 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="//unpkg.com/timeago.js"></script> -->
   </head>
 
   <body>
@@ -51,49 +53,52 @@
 
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
+        <form action="/tweets" method="POST" id="tweet-form">
           <div class="tweet-input">
             <label for="tweet-text">What are you humming about?</label>
             <textarea name="text" id="tweet-text"></textarea>
           </div>
           <div class="submit-counter">
-            <button type="submit">Tweet</button>
+            <button type="submit" id="tweet-submit-btn">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
 <!-- ____________________________________________________________ -->
-      <section class="tweets-list">
-        <article class="tweets-list-container">
-          <header class="tweets-list-header">
-            <div class="tweets-name-display">
-              <img src="/images/naruto.png" class="tweets-list-avatar"/>
-              <p class="tweet-nickname">
-                RealTwitterUser123
+      <div class="all-tweets-container">
+        <!-- <section class="tweets-list">
+          <article class="tweets-list-container">
+            <header class="tweets-list-header">
+              <div class="tweets-name-display">
+                <img src="/images/naruto.png" class="tweets-list-avatar"/>
+                <p class="tweet-nickname">
+                  RealTwitterUser123
+                </p>
+              </div>
+  
+              <p class="tweet-username">
+                @Animeavatar123
               </p>
+            </header>
+            
+            <div class="tweet-body">
+              <p>I swear i am a real twitter user. </p>
             </div>
-
-            <p class="tweet-username">
-              @Animeavatar123
-            </p>
-          </header>
-          
-          <div class="tweet-body">
-            <p>I swear i am a real twitter user. </p>
-          </div>
-
-          <footer>
-            <p class="tweet-date">
-              69 days ago
-            </p>
-            <div class="tweet-icons">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </article>
-      </section>
+  
+            <footer>
+              <p class="tweet-date">
+                69 days ago
+              </p>
+              <div class="tweet-icons">
+                <i class="fa-solid fa-flag"></i>
+                <i class="fa-solid fa-retweet"></i>
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </footer>
+          </article>
+        </section> -->
+      </div>
+        
 <!-- _________________________________________________________________ -->
     </main>
 
