@@ -43,3 +43,75 @@ body {
  .no-chars-left {
   color: red;
  }
+
+.new-tweet {
+  padding-bottom: 1em;
+}
+
+ .tweets-list {
+   border: 3px solid rgb(59, 59, 59);
+   
+}
+
+.tweets-list:hover {
+  box-shadow: 5px 5px 10px rgba(35, 22, 95, 1);
+}
+
+.tweets-list-container {
+  margin: 1em;
+}
+
+/* TWEETS LIST HEADER___________________________ */
+.tweets-list-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.tweets-name-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.tweets-name-display > p {
+  padding-left: 1em;
+}
+
+.tweets-list-avatar {
+  height: 60px;
+}
+
+.tweet-username {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  color: rgb(80, 118, 184)
+}
+/* ____________________________________________ */
+
+.tweet-body {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  text-align: left;
+}
+
+.tweets-list-container > footer {
+  border-top: 3px solid rgb(58, 58, 58);
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet-icons {
+  padding-top: 1em;
+}
+
+.tweet-icons > i {
+  padding: 0 .2em;
+}
+
+.tweet-icons > i:hover {
+  color: rgb(204, 55, 55);
+}
+
+.tweet-date {
+  font-size: .8em;
+}
