@@ -2,7 +2,7 @@ $(document).ready(function() {
   console.log('document loaded!!!')
 })
 
-const textarea = document.getElementById("tweet-text")
+const textarea = document.getElementById("tweet-text-area")
 
 $(textarea).on("keypress", function() {
   let characterCounter = $(this).closest('.tweet-input').next('.submit-counter').find('output')

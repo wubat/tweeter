@@ -56,7 +56,10 @@
         <form action="/tweets" method="POST" id="tweet-form">
           <div class="tweet-input">
             <label for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text"></textarea>
+            <p class="validation-error">
+              ERROR msgs here
+            </p>
+            <textarea name="text" id="tweet-text-area"></textarea>
           </div>
           <div class="submit-counter">
             <button type="submit" id="tweet-submit-btn">Tweet</button>

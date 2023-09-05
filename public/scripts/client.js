@@ -24,17 +24,24 @@ $(document).ready( function() {
 
   // const tweetPostTime = format(Date.now() - 11 * 1000 * 60 * 60)
   
-  const renderTweets = (tweetObjArr) => {
-    for (tweeterUserObj of tweetObjArr) {
-      const $tweetElement = createTweetElement(tweeterUserObj)
-      $('.all-tweets-container').prepend($tweetElement)
-    }
-  }
-
+  
   // const renderNewTweet = (tweetObj) => {
-  //   const $tweetElement = createTweetElement(tweetObj)
-  //   $('.all-tweets-container').prepend($tweetElement)
-  // }
+    //   const $tweetElement = createTweetElement(tweetObj)
+    //   $('.all-tweets-container').prepend($tweetElement)
+    // }
+
+    const renderTweets = (tweetObjArr) => {
+      for (tweeterUserObj of tweetObjArr) {
+        const $tweetElement = createTweetElement(tweeterUserObj)
+        $('.all-tweets-container').prepend($tweetElement)
+      }
+    }
+    
+    const escape = function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML
+    }
 
   const createTweetElement = (data) => {
     // console.log(data)
@@ -56,7 +63,9 @@ $(document).ready( function() {
             </header>
             
             <div class="tweet-body">
-              <p>${data.content.text} </p>
+              <p>
+              ${escape(data.content.text)}
+              </p>
             </div>
   
             <footer>
@@ -85,23 +94,24 @@ $(document).ready( function() {
     event.preventDefault()
     const tweetFormData = $('#tweet-form').serialize()
     // console.log($('#tweet-form').serialize())
-    let tweetTextField = $('#tweet-text').val();
+    let tweetTextField = $('#tweet-text-area').val();
 
     if (tweetTextField === "") {
-      alert('text field cant be empty!');
+      return $('.validation-error').text('Text field cant be empty!').slideDown()
     } else if (tweetTextField.length > 140) {
-      alert('you are over the character limit!');
+      return $('.validation-error').text('You are over the character limit!').slideDown()
     }
 
     $.post('/tweets', tweetFormData, function(responseData) {
-      console.log(responseData)
+      // console.log(responseData)
 
       $.get('/tweets', function(res) {
         renderTweets(res)
-        $('#tweet-text').val('')
+        $('#tweet-text-area').val('')
       })
-
-
+      
+      
+      $('.validation-error').slideUp()
       
     })
 
