@@ -20,3 +20,11 @@
 .username {
   color: white;
 }
+
+@media screen and (min-width: 1024px) {
+  .profile-header {
+    width: 45vw;
+    float: left;
+    margin: 1em;
+  }
+}

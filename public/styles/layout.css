@@ -28,25 +28,30 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
+.content-layout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
  .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 90vw;
   background-color: #f4f1ec;
-  border: 1px red;
   position: relative;
   top: 120px;
-  border: 2px solid red;
  }
+
+  .new-tweet {
+    width: 80vw;
+    margin-bottom: 1em;
+  }
 
  .no-chars-left {
   color: red;
  }
 
-.new-tweet {
-  padding-bottom: 1em;
-}
 
 .validation-error {
   display: none;
@@ -132,4 +137,26 @@ body {
 
 .tweet-date {
   font-size: .8em;
+}
+
+.content-layout-container {
+  display: flex; 
+  flex-direction: column;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .content-layout-container {
+    display:block
+    
+  }
+
+  .new-tweet {
+    width: 45vw;
+  }
+
+  .container {
+    width: 45vw;
+    margin: 1em;
+  }
 }
