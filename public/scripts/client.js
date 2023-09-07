@@ -31,9 +31,11 @@ $(document).ready( function() {
     // }
 
     const renderTweets = (tweetObjArr) => {
+      $('.all-tweets-container').empty()
       for (tweeterUserObj of tweetObjArr) {
         const $tweetElement = createTweetElement(tweeterUserObj)
         $('.all-tweets-container').prepend($tweetElement)
+        console.log(tweeterUserObj)
       }
     }
     
@@ -44,7 +46,7 @@ $(document).ready( function() {
     }
 
   const createTweetElement = (data) => {
-    // console.log(data)
+    console.log(data)
     
     return `
     <section class="tweets-list">
@@ -70,7 +72,7 @@ $(document).ready( function() {
   
             <footer>
               <p class="tweet-date">
-                ${timeago.format(Date.now() - 11 * 1000 * 60 * 60)}
+                 ${timeago.format(data.created_at)}
               </p>
               <div class="tweet-icons">
                 <i class="fa-solid fa-flag"></i>

@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 const textarea = document.getElementById("tweet-text-area")
 
-$(textarea).on("keypress", function() {
+$(textarea).on("input", function() {
   let characterCounter = $(this).closest('.tweet-input').next('.submit-counter').find('output')
   let tweetCharsLeft = 140 - $(this).val().length
 
