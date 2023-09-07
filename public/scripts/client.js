@@ -4,31 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// const { render } = require("timeago.js")
-
 
 $(document).ready( function() {
-  
-  // const tweetData = {
-  //   user: {
-  //     name: "Newton",
-  //     avatars: "https://i.imgur.com/73hZDYK.png",
-  //     handle: "@SirIsaac"
-  //   },
-  //   content: {
-  //     text: "If I have seen further it is by standing on the shoulders of giants"
-  //   },
-  //   created_at: 1461116232227
-
-  // }
-
-  // const tweetPostTime = format(Date.now() - 11 * 1000 * 60 * 60)
-  
-  
-  // const renderNewTweet = (tweetObj) => {
-    //   const $tweetElement = createTweetElement(tweetObj)
-    //   $('.all-tweets-container').prepend($tweetElement)
-    // }
 
     const renderTweets = (tweetObjArr) => {
       $('.all-tweets-container').empty()
@@ -39,6 +16,7 @@ $(document).ready( function() {
       }
     }
     
+    //escapes unsafe chars for user scripting vulnerabilities
     const escape = function(str) {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
@@ -89,53 +67,28 @@ $(document).ready( function() {
      renderTweets(data);
   }, 'json');
   
-  
   loadTweets;
 
   $('#tweet-form').submit(function(event) {
-    event.preventDefault()
-    const tweetFormData = $('#tweet-form').serialize()
-    // console.log($('#tweet-form').serialize())
+    event.preventDefault();
+    const tweetFormData = $('#tweet-form').serialize();
     let tweetTextField = $('#tweet-text-area').val();
 
     if (tweetTextField === "") {
-      return $('.validation-error').text('Text field cant be empty!').slideDown()
+      return $('.validation-error').text('Text field cant be empty!').slideDown();
     } else if (tweetTextField.length > 140) {
-      return $('.validation-error').text('You are over the character limit!').slideDown()
+      return $('.validation-error').text('You are over the character limit!').slideDown();
     }
 
     $.post('/tweets', tweetFormData, function(responseData) {
-      // console.log(responseData)
 
       $.get('/tweets', function(res) {
-        renderTweets(res)
+        renderTweets(res);
         $('#tweet-text-area').val('')
-      })
+      });
       
       
-      $('.validation-error').slideUp()
-      
-    })
-
-    // $.get('/tweets', function(resData) {
-    //   const newTweet = resData[resData.length - 1]
-    //   renderNewTweet(newTweet)
-    //   // console.log(newTweet.user.name)
-    // })
-
-
+      $('.validation-error').slideUp();
+    });
   })
-
-
-  // const $form = $('#tweet-form');
-  // const formData = $form.serialize();
-
-  
-
-
-  // const $tweet = createTweetElement(tweetData);
-  
-  // console.log($tweet)
-  // $('.all-tweets-container').append($tweet)
-
 })
