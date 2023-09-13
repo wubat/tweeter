@@ -5,17 +5,16 @@ $(document).ready(function() {
 const textarea = document.getElementById("tweet-text-area")
 
 $(textarea).on("input", function() {
-  let characterCounter = $(this).closest('.tweet-input').next('.submit-counter').find('output')
-  let tweetCharsLeft = 140 - $(this).val().length
+  let tweetCharsLeft = 140 - $(this).val().length;
+  let characterCounter = $(this).closest('.tweet-input').next('.submit-counter').find('output');
 
   if (tweetCharsLeft < 0) {
-    characterCounter.addClass('no-chars-left')
+    characterCounter.addClass('no-chars-left');
   } else if (tweetCharsLeft >= 0) {
-    characterCounter.removeClass('no-chars-left')
+    characterCounter.removeClass('no-chars-left');
   }
 
-  characterCounter.text(tweetCharsLeft)
-  
-})
+  characterCounter.text(tweetCharsLeft);
+});
 
 

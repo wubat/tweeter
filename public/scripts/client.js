@@ -84,11 +84,11 @@ $(document).ready( function() {
 
       $.get('/tweets', function(res) {
         renderTweets(res);
-        $('#tweet-text-area').val('')
+        $('#tweet-text-area').val('');
+        $('.counter').text('140');
       });
-      
       
       $('.validation-error').slideUp();
     });
   })
-})
+});
